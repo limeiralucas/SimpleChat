@@ -16,7 +16,13 @@ class Sidebar extends PureComponent {
         <section>User List</section>
         <ul id="usersList" className="usersList">
           {users.map(user => (
-            <li key={user.id} id={user.id} onClick={e => this.getMessages(e.target.id)}>
+            <li
+              key={user.id}
+              id={user.id}
+              onClick={e => this.getMessages(e.target.id)}
+              role="menuitem"
+              onKeyPress={() => false}
+            >
               {user.name}
             </li>
           ))}
