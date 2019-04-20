@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import sendMessage from '../actions';
+import { sendMessage } from '../actions';
 
 class MessageInput extends Component {
   constructor(props) {

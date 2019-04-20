@@ -1,4 +1,4 @@
-const sendMessage = (text, author) => ({
+export const sendMessage = (text, author) => ({
   type: 'SEND_MESSAGE_REQUEST',
   payload: {
     id: (Math.random() * 100) % 100,
@@ -7,4 +7,11 @@ const sendMessage = (text, author) => ({
   },
 });
 
-export default sendMessage;
+export const getMessages = conversationId => ({
+  type: 'GET_MESSAGE_REQUEST',
+  payload: {
+    conversationId,
+  },
+});
+
+export default { sendMessage, getMessages };

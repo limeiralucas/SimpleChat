@@ -4,9 +4,12 @@ const INITIAL_STATE = {
 
 const rootReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SEND_MESSAGE_REQUEST': {
+    case 'GET_MESSAGE_RECEIVED': {
+      if (action.payload.new) {
+        return { ...state, messages: action.payload.messages };
+      }
       const { messages } = state;
-      return { ...state, messages: [...messages, action.payload] };
+      return { ...state, messages: [...messages, ...action.payload.messages] };
     }
     default:
       return state;

@@ -4,7 +4,7 @@ import '../assets/stylesheets/app.css';
 import Sidebar from './Sidebar';
 import MessageArea from './MessageArea';
 
-const users = [{ name: 'Lucas' }, { name: 'Gabs' }];
+const users = [{ id: 0, name: 'Lucas' }, { id: 1, name: 'Gabs' }];
 
 const App = () => (
   <div className="mainContainer">
