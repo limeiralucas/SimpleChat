@@ -22,8 +22,10 @@ class MessageInput extends Component {
   handleOnKeyDown(event) {
     if (event.key === 'Enter') {
       const { value } = this.state;
-      this.sendMessage(value, 'Lucas');
-      this.setState({ value: '' });
+      if (value.trim() !== '') {
+        this.sendMessage(value, 'Lucas');
+        this.setState({ value: '' });
+      }
     }
   }
 
