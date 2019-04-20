@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const MessageList = ({ messages = [] }) => (
+const MessageList = ({ messages }) => (
   <div id="messageList" className="messageList">
     <section>Messages</section>
     {messages.map((message) => {
@@ -9,7 +10,7 @@ const MessageList = ({ messages = [] }) => (
         textAlign: fromMe ? 'right' : 'left',
       };
       return (
-        <div id="message" className="message" style={style}>
+        <div id="message" className="message" style={style} key={message.id}>
           <i>{message.author}</i>
 :
           {message.text}
@@ -19,4 +20,8 @@ const MessageList = ({ messages = [] }) => (
   </div>
 );
 
-export default MessageList;
+const mapStateToProps = ({ messages }) => ({
+  messages,
+});
+
+export default connect(mapStateToProps)(MessageList);
